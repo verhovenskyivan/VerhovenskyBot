@@ -12,7 +12,20 @@ def get_user_text(message):
     if message.text == "Hello":
         bot.send_message(message.chat.id,"И тебе привет", parse_mode='html')
     elif message.text == "id":
-        bot.send_message(message.chat.id,f"Твой id:{message.from_user}" parse_mode='html')
+        bot.send_message(message.chat.id, f"Твой id:{message.from_user}")
+    elif message.text == "photo":
+        photo = open('icon.png','rb')
+        bot.send_photo(message.chat.id, photo)
+    elif message.text == "audio":
+        audio = open('/tmp/audio.mp3', 'rb')
+        bot.send_audio(message.chat_id, audio)
+        bot.send_audio(message.chat_id, "FILEID")
+    else:
+        bot.send_message(message.chat.id, 'Я тебя не понимаю', parse_mode='html')
+
+@bot.message_handler(content_types=['photo'])
+def get_user_photo(message):
+    bot.send_message(message.chat.id, 'Интересное фото')
 
     
 bot.polling(non_stop=True)
