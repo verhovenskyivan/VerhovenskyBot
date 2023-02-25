@@ -18,8 +18,12 @@ def get_user_text(message):
         bot.send_photo(message.chat.id, photo)
     elif message.text == "audio":
         audio = open('/tmp/audio.mp3', 'rb')
-        bot.send_audio(message.chat_id, audio)
-        bot.send_audio(message.chat_id, "FILEID")
+        bot.send_audio(message.chat.id, audio)
+        bot.send_audio(message.chat.id, "FILEID")
+    elif message.text == "sticker":
+        sticker = open('/tmp/sti.webp', 'rb')
+        bot.send_sticker(message.chat.id, sticker)
+        bot.send_sticker(message.chat.it, "FILIED")
     else:
         bot.send_message(message.chat.id, 'Я тебя не понимаю', parse_mode='html')
 
@@ -28,4 +32,7 @@ def get_user_photo(message):
     bot.send_message(message.chat.id, 'Интересное фото')
 
     
-bot.polling(non_stop=True)
+    
+@bot.send_chat_action(action="upload_photo")
+def upload_photo(action):
+    bot.send_chat_action(action=upload_photo)
