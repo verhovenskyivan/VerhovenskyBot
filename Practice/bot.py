@@ -50,7 +50,11 @@ async def file_downloader(get_file, message):
     get_file = file_downloader
     await bot.get_file(get_file.message.chat.id, get_file)
 
-
+@bot.message_handler(func=lambda m: True)
+async def echo_all(message):
+	await bot.reply_to(message, message.text)
+ 
+ 
 bot.forward_message()
 
 large_text = open("large_text.txt", "rb").read()
