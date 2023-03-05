@@ -12,9 +12,13 @@ bot = telebot.TeleBot("6067029581:AAE7krVg-J-n03RCA3fSMmQtDX2D1pFJvQg")
 async def start(message):
    await bot.send_message(message.chat.id, 'Здравствуйте, я бот Ивана, принимаю сообщения и передаю их создателю',)
 
-@bot.message_handler(commands=['Information'])
+@bot.message_handler(commands=['info'])
 async def info(message):
     await bot.send_message(message.chat.id, 'Меня зовут Иван Верховенский, увлекаюсь разработкой, работаю системным администратором и хочу стать DevOps инженером')
+
+@bot.message_handler(commands=["get"])
+async def get(message):
+    await bot.send_document
 
 @bot.message_handler(commands=['help'])
 async def help(message):
