@@ -20,6 +20,19 @@ async def info(message):
 async def get(message):
     await bot.send_document
     
+@bot.message_handler(commands=['help'])
+async def help(message):
+    await bot.send_message(message.chat.id, 'Что вы хотите узнать?')
+
+@bot.message_handler(commands=["Random"])
+async def help(message):
+    await bot.send_message
+    
+@bot.message_handler(commands=["Gachi" or "Гачи" or "ГАЧИ" or "GACHI"])
+async def Gachi(message):
+    await bot.send_photo(message.chat.id) 
+    updates = bot.get_updates(offset= 100,limit= 100,timeout=0)
+    
 @bot.poll_answer_handler()
 
 @bot.inline_handler(lambda query: query.query == "text")
@@ -67,12 +80,5 @@ async def file_downloader(get_file, message):
 @bot.message_handler(func=lambda m: True)
 async def echo_all(message):
 	await bot.reply_to(message, message.text)
- 
- 
-bot.forward_message()
-
-large_text = open("large_text.txt", "rb").read()
-
-apihelper.proxy = {'http':'http://127.0.0.1:3128'}
 
 bot.infinity_polling()
