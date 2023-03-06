@@ -19,6 +19,12 @@ async def info(message):
 @bot.message_handler(commands=["get"])
 async def get(message):
     await bot.send_document
+    
+@bot.poll_answer_handler()
+
+@bot.inline_handler(lambda query: query.query == "text")
+async def query_text(inline_query):
+    await bot.send_message()
 
 @bot.message_handler(commands=['help'])
 async def help(message):
