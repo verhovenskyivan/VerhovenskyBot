@@ -27,8 +27,11 @@ async def help(message):
 @bot.message_handler(commands="send")
 async def send(message):
     await bot.get_file()
-    
-
+        
+@bot.message_handler(commands=["Sticker"])
+async def sticker(message):
+    await bot.send_sticker()
+          
 @bot.message_handler(commands=["Random"])
 async def help(message):
     await bot.send_message
