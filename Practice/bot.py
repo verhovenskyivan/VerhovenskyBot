@@ -28,11 +28,15 @@ async def help(message):
 async def send(message):
     await bot.get_file()
         
-@bot.message_handler(commands=["Sticker"])
+@bot.message_handler(commands=["sticker"])
 async def sticker(message):
     await bot.send_sticker()
           
-@bot.message_handler(commands=["Random"])
+@bot.message_handler(commands=["resume"])
+async def resume(message):
+    await bot.send_document()
+
+@bot.message_handler(commands=["random"])
 async def help(message):
     await bot.send_message
     
