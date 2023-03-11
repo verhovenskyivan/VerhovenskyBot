@@ -40,11 +40,15 @@ async def resume(message):
 async def help(message):
     await bot.send_message
     
-@bot.message_handler(commands=["Gachi" or "Гачи" or "ГАЧИ" or "GACHI"])
+@bot.message_handler(commands=["Gachi"])
 async def Gachi(message):
     await bot.send_photo(message.chat.id) 
     updates = bot.get_updates(offset= 100,limit= 100,timeout=0)
-    
+
+@bot.message_handler(commands=["Type"])
+async def Type(message):
+    await bot.send_poll()
+        
 @bot.poll_answer_handler()
 
 @bot.inline_handler(lambda query: query.query == "text")
