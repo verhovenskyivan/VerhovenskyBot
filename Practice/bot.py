@@ -23,26 +23,32 @@ async def get(message):
 @bot.message_handler(commands=['help'])
 async def help(message):
     await bot.send_message(message.chat.id, 'Что вы хотите узнать?')
+    updates = bot.get_updates(offset= 100,limit= 100,timeout=0)
 
 @bot.message_handler(commands="send")
 async def send(message):
     await bot.get_file()
+    updates = bot.get_updates(offset= 100,limit= 100,timeout=0)
     
 @bot.message_handler(commands="animation")
 async def animation(message):
     await bot.send_animation()
+    updates = bot.get_updates(offset= 100,limit= 100,timeout=0)
         
 @bot.message_handler(commands=["sticker"])
 async def sticker(message):
     await bot.send_sticker()
+    updates = bot.get_updates(offset= 100,limit= 100,timeout=0)
           
 @bot.message_handler(commands=["resume"])
 async def resume(message):
     await bot.send_document()
+    updates = bot.get_updates(offset= 100,limit= 100,timeout=0)
 
 @bot.message_handler(commands=["random"])
 async def help(message):
     await bot.send_message
+    updates = bot.get_updates(offset= 100,limit= 100,timeout=0)
     
 @bot.message_handler(commands=["Gachi"])
 async def Gachi(message):
