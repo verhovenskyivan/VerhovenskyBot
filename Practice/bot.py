@@ -50,14 +50,14 @@ async def help(message):
     await bot.send_message
     updates = bot.get_updates(offset= 100,limit= 100,timeout=0)
     
-@bot.message_handler(commands=["Gachi"])
+@bot.message_handler(commands=["gachi"])
 async def Gachi(message):
     await bot.send_photo(message.chat.id) 
     updates = bot.get_updates(offset= 100,limit= 100,timeout=0)
 
 @bot.message_handler(commands=["Type"])
 async def Type(message):
-    await bot.send_poll()
+    await bot.allow_sending_without_reply
         
 @bot.poll_answer_handler()
 
